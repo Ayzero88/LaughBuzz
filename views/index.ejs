@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laugh Now</title>
+    <link rel="stylesheet" href="/styles/styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Kaushan+Script&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="img-wrap">
+            <img src="/image/comedy.png" alt="comedy" />
+        </div>
+        <h1>Laugh now and get your happiness back</h1>
+        <form action="category" method="post">
+            <select name="category" id="category">
+                <option value="">Choose Category</option>
+                <option value="Programming">Programming</option>
+                <option value="Misc">Misc</option>
+                <option value="Dark">Dark</option>
+                <option value="Pun">Pun</option>
+                <option value="Spooky">Spooky</option>
+                <option value="Christmas">Christmas</option>
+                <option value="Any">Any</option>
+            </select>
+            <input type="submit" value="Fetch" name="fetch" />
+
+           
+        </form>
+            
+            <div class="content">
+                <div class="category-type">
+                    <h4><span>Category: </span> <%= joke.category%></h4>
+                    <h4><span>Type: </span><%= joke.type%></h4>
+                </div>
+                <div class="laugh-text">
+                    <% if(joke.type === 'single'){%>
+                    <p><%= joke.joke%></p>
+                    <% } else { %>
+                    <p><%= joke.setup %></p>
+                    <p><%= joke.delivery %></p>
+                    <% } %>
+                </div>
+            </div>
+            
+            <%if(locals.issue){%>
+                <div class="content">
+                    <p><%= issue %></p>
+                </div>
+                <% } %>
+    </div>
+</body>
+</html>
