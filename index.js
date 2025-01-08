@@ -4,7 +4,7 @@ import axios from 'axios';
 const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
-const port = 3001;
+const port = process.env.PORT || 3000;
 const API_URL = " https://v2.jokeapi.dev/joke";
 
 app.get('/', async(req, res)=>{
@@ -34,6 +34,6 @@ app.post('/category', async(req, res) => {
 
 
 
-app.listen(port, ()=>{
+app.listen(port, "0.0.0.0", ()=>{
     console.log("listening on port " + port);
 });
